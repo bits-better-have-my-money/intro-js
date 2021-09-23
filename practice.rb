@@ -139,4 +139,157 @@ def print_sums(array1, array2)
   end
 end
 
-print_sums([1, 5, 10], [100, 500, 1000])
+# print_sums([1, 5, 10], [100, 500, 1000])
+
+# 1) Write a function that takes in an array of numbers and returns its sum.
+def sum(numbers)
+  result = 0
+  numbers.each do |number|
+    result += number
+  end
+  result
+end
+
+# p sum([1, 2, 5])
+
+# 2) Write a function that takes in an array of strings and returns the smallest string.
+def smallest_string(strings)
+  smallest = strings[0]
+  strings.each do |string|
+    if string.length < smallest.length
+      smallest = string
+    end
+  end
+  smallest
+end
+
+# p smallest_string(["apple", "orange", "banana"])
+
+# 3) Write a function that takes in an array of numbers and returns a new array with the numbers in reverse order.
+def reversed_numbers(numbers)
+  result = []
+  index = numbers.length - 1
+  while index >= 0
+    result << numbers[index]
+    index -= 1
+  end
+  result
+end
+
+# p reversed_numbers([1, 2, 5])
+
+# 4) Write a function that takes in an array of words and returns the number of words that begin with the letter “a”.
+def a_words(words)
+  result = 0
+  index = 0
+  while index < words.length
+    if words[index][0] == "a"
+      result += 1
+    end
+    index += 1
+  end
+  result
+end
+
+p a_words(["apple", "orange", "grapes"])
+
+# 5) Write a function that takes in an array of strings and joins them together to make a single string separated by commas.
+def join_with_commas(strings)
+  result = ""
+  strings.each do |string|
+    result += string + ","
+  end
+  result
+end
+
+# p join_with_commas(["apple", "orange", "banana"]);
+
+# 6) Write a function that takes in an array of numbers and returns the product of all the numbers (each number multiplied by each other). 
+def product(numbers)
+  result = 1
+  index = 0
+  while index < numbers.length
+    result = result * numbers[index]
+    index += 1
+  end
+  result
+end
+
+p product([1, 2, 3, 4])
+
+# 7) Write a function that takes in an array of numbers and returns the two smallest numbers.
+def two_smallest_numbers(numbers)
+  smallest_index = 0 
+  smallest = numbers[0]
+  index = 0
+  while index < numbers.length
+    if numbers[index] < smallest
+      smallest_index = index
+      smallest = numbers[index]
+    end
+    index += 1
+  end
+  second_smallest = numbers[smallest_index - 1]
+  index = 0
+  while index < numbers.length
+    if index != smallest_index && numbers[index] < second_smallest
+      second_smallest = numbers[index]
+    end
+    index += 1
+  end
+  [smallest, second_smallest]
+end
+# smallest index = 1
+# smallest number = 1
+
+p two_smallest_numbers([10, 1, 8, 3, 24, 12])
+
+# 8) Write a function that takes in an array of numbers and returns a count of how many zeros are in the array.
+def zero_count(numbers)
+  result = 0
+  index = 0
+  while index < numbers.length
+    if numbers[index] == 0
+      result += 1
+    end
+    index += 1
+  end
+  result
+end
+
+p zero_count([9, 32, 0, 2, 0, 12, 5, 2, 0, 1])
+
+# 9) Write a function that takes in an array of numbers and returns true if all the numbers are bigger than 10, otherwise returns false.
+def is_all_big(numbers)
+  result = true
+  index = 0
+  while index < numbers.length
+    if numbers[index] <= 10
+      result = false
+    end
+    index += 1
+  end
+  result
+end
+
+p is_all_big([11, 23, 32])
+
+# 10) Write a function that takes in an array of words and returns the number of times the letter “a” appeared in total.
+def a_count(words)
+  result = 0
+  index = 0
+  while index < words.length
+    word = words[index]
+    index2 = 0
+    while index2 < word.length
+      if word[index2] == "a"
+        result += 1
+      end
+      index2 += 1
+    end
+    index += 1
+  end
+  result
+end
+
+p a_count(["apple", "orange", "grapes"])
